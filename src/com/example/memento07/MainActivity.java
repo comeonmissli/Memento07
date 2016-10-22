@@ -57,9 +57,6 @@ public class MainActivity extends Activity {
 						});
 	     }
 	private class MyOnClickListener implements OnClickListener{
-          
-           
-
 		@Override
 		public void onClick(View v) {
 			MyDatebaseHelper mydbHelper = new MyDatebaseHelper(MainActivity.this,"memento.db",null,1);
@@ -80,7 +77,7 @@ public class MainActivity extends Activity {
 				SimpleCursorAdapter resultAdapter=new SimpleCursorAdapter(MainActivity.this,
 					R.layout.activity_main,cursor,
 						new String[]{"_id","subject","body","date"},
-						new int[]{R.id.add,R.id.subject,R.id.body,R.id.date}
+						new int[]{R.id.memento_num,R.id.memento_subject,R.id.memento_body,R.id.memento_date}
 				);
 				result.setAdapter(resultAdapter);
 				break;
@@ -94,9 +91,9 @@ public class MainActivity extends Activity {
 				String date) {
 			db.execSQL("insert into memento_tb values(null,?,?,?)", new String[] {
 					subject, body, date });
-			//this.subject.setText("");
-			//this.body.setText("");
-		//	this.date.setText("");
+		//	this.subject.setText("");
+		 //   this.body.setText("");
+			//this.date.setText("");
 		}
 
 		public Cursor queryMemento(SQLiteDatabase db, String subject, String body,
